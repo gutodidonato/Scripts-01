@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .orientacoes .icone {
+            color: white;
+            background-color: red;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, font-size 0.3s;
+            width: 30px;
+            text-align: center;
+        }
+
+        .orientacoes .icone:hover {
+            background-color: darkred;
+             /* Ajuste o tamanho da fonte ao passar o mouse conforme necessário */
+        }
+
+        .orientacoes .barra {
+            padding: 10px;
+            background-color: rgb(145, 145, 145);
+            width: 600px;
+        }
+
+        .orientacoes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+
+        .orientacoes .dropdown {
+            position: relative;
+            border: 0.5px solid #00000094;
+        }
+
+        .orientacoes .barra-dropdown {
+            display: flex;
+            flex-direction: row;
+            background-color: #f0f0f0; /* Adiciona um fundo ao menu */
+        }
+
+        .orientacoes .elemento_hidden {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .orientacoes .ativo .elemento_hidden {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="orientacoes">
+        <div class="dropdown">
+            <div class="barra-dropdown" onclick="toggleVisibility(this)">
+                <p class="icone">+</p>
+                <p class="barra">ORIENTAÇÕES GERAIS PARA EMBARQUES INTERNACIONAIS</p>
+            </div>
+            
+            <div class="elemento_hidden">
+                <p>TEXTO TEXTO TEXTO</p>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="barra-dropdown" onclick="toggleVisibility(this)">
+                <p class="icone">+</p>
+                <p class="barra">LIMITES DE VALOR DAS MERCADORIAS</p>
+            </div>
+            
+            <div class="elemento_hidden">
+                <p>TEXTO TEXTO TEXTO</p>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="barra-dropdown" onclick="toggleVisibility(this)">
+                <p class="icone">+</p>
+                <p class="barra">OBRIGAÇÕES DOS CLIENTES</p>
+            </div>
+            
+            <div class="elemento_hidden">
+                <p>TEXTO TEXTO TEXTO</p>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="barra-dropdown" onclick="toggleVisibility(this)">
+                <p class="icone">+</p>
+                <p class="barra">LIMITES DE DIMENSÕES EMBALAGENS E PESOS</p>
+            </div>
+            
+            <div class="elemento_hidden">
+                <p>TEXTO TEXTO TEXTO</p>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="barra-dropdown" onclick="toggleVisibility(this)">
+                <p class="icone">+</p>
+                <p class="barra">ITENS RESTRITOS</p>
+            </div>
+            
+            <div class="elemento_hidden">
+                <p>TEXTO TEXTO TEXTO</p>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="barra-dropdown" onclick="toggleVisibility(this)">
+                <p class="icone">+</p>
+                <p class="barra">CONFERENCIA ADUANEIRA</p>
+            </div>
+            
+            <div class="elemento_hidden">
+                <p>TEXTO TEXTO TEXTO</p>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="barra-dropdown" onclick="toggleVisibility(this)">
+                <p class="icone">+</p>
+                <p class="barra">EXIGENCIAS FISCAIS</p>
+            </div>
+            
+            <div class="elemento_hidden">
+                <p>TEXTO TEXTO TEXTO</p>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="barra-dropdown" onclick="toggleVisibility(this)">
+                <p class="icone">+</p>
+                <p class="barra">REGIME DE TRIBUTAÇÃO SIMPLIFICADA</p>
+            </div>
+            
+            <div class="elemento_hidden">
+                <p>TEXTO TEXTO TEXTO</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleVisibility(element) {
+            var dropdown = element.closest('.dropdown');
+            dropdown.classList.toggle('ativo');
+
+            var icone = dropdown.querySelector('.icone');
+            icone.textContent = dropdown.classList.contains('ativo') ? '-' : '+';
+
+            var elemento_hidden = dropdown.querySelector('.elemento_hidden');
+            if (dropdown.classList.contains('ativo')) {
+                elemento_hidden.style.maxHeight = elemento_hidden.scrollHeight + "px";
+            } else {
+                elemento_hidden.style.maxHeight = null;
+            }
+        }
+    </script>
+</body>
+</html>

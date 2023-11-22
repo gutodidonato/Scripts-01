@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #slider-container-espec {
+            overflow: hidden;
+            width: 600px;
+            height: 200px;
+            margin: 30px auto;
+        }
+        
+        #slider-espec {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+        
+        .slider-item-espec {
+            min-width: 200px; /* Largura da imagem */
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-espec {
+            width: 100%; /* Para garantir que a imagem ocupe 100% da largura da caixa */
+            height: auto;
+        }
+    </style>
+    <title>Slider</title>
+</head>
+<body>
+    <div id="slider-container-espec">
+        <div id="slider-espec">
+            <div class="slider-item-espec"><img class="img-espec" src="teste.jpg" alt="Image 1"></div>
+            <div class="slider-item-espec"><img class="img-espec" src="teste.jpg" alt="Image 2"></div>
+            <div class="slider-item-espec"><img class="img-espec" src="teste.jpg" alt="Image 3"></div>
+            <div class="slider-item-espec"><img class="img-espec" src="teste.jpg" alt="Image 3"></div>
+            <div class="slider-item-espec"><img class="img-espec" src="teste.jpg" alt="Image 3"></div>
+            <div class="slider-item-espec"><img class="img-espec" src="teste.jpg" alt="Image 3"></div>
+            <div class="slider-item-espec"><img class="img-espec" src="teste.jpg" alt="Image 3"></div>
+            <div class="slider-item-espec"><img class="img-espec" src="teste.jpg" alt="Image 3"></div>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider-espec');
+        const sliderItems = document.querySelectorAll('.slider-item-espec');
+        let currentIndex = 0;
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % (sliderItems.length - 2);
+            updateSlider();
+        }
+
+        function updateSlider() {
+            const translateValue = -currentIndex * 200 + 'px'; 
+            slider.style.transform = 'translateX(' + translateValue + ')';
+        }
+
+        setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html>
